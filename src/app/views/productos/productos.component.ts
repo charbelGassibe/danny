@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Producto } from 'src/app/models/model';
 import { ProductoServiceService } from 'src/app/services/producto-service.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DetalleComponent } from './detalle/detalle.component';
+import { ProductoTO } from 'src/app/models/productoTO';
 
 @Component({
   selector: 'app-productos',
@@ -13,7 +13,7 @@ export class ProductosComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'ubicacion', 'accion'];
 
-  productos: Producto[] = []
+  productos: ProductoTO[] = []
 
   constructor(
     private productoService: ProductoServiceService,
@@ -34,7 +34,7 @@ export class ProductosComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DetalleComponent, {
       width: '25%',
-      data: { name: 'algo', animal: 'algo' },
+      data: { },
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -61,6 +61,9 @@ export class ProductosComponent implements OnInit {
     this.productoService.eliminarProducto(row).subscribe(x => {
       console.log("eliminar")
     })
+
+    this.getProductos();
+
   }
 
 }

@@ -1,10 +1,10 @@
 {
     "/api": {
-      "target": "https://api.spotify.com/v1",
-      "secure": true,
-      "changeOrigin": true,
-      "pathRewrite": {
-        "^/api": ""
-      }
+        "target": "https://sistemas.forus.cl/",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": ""
+        }
     }
-  }
+}
