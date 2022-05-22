@@ -1,0 +1,39 @@
+<mat-card>
+    <h2 *ngIf="!producto.id">Nuevo Producto</h2>
+    <h2 *ngIf="producto.id">Actualizar Producto</h2>
+    <form action="#">
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput placeholder="Nombre producto" [(ngModel)]="producto.nombre" name="producto.nombre">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Descripcion</mat-label>
+            <input matInput placeholder="Descripcion producto" [(ngModel)]="producto.descripcion" name="descripion">
+        </mat-form-field>
+        <br>
+        <br>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Cantidad</mat-label>
+            <input matInput placeholder="Cantidad producto" [(ngModel)]="producto.cantidad" name="cantidad">
+        </mat-form-field>
+        <br>
+        <br>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Ubicacion</mat-label>
+            <input matInput placeholder="Ubicacion producto" [(ngModel)]="producto.ubicacion" name="ubicacion">
+        </mat-form-field>
+        <br>
+        <br>
+
+        <button type="button" (click)="nuevoProducto()">Grabar</button>
+
+    </form>
+</mat-card>
+
+<!-- Copyright 2022 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at https://angular.io/license -->
