@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Producto } from 'src/app/models/model';
 import { ProductoServiceService } from 'src/app/services/producto-service.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DetalleComponent } from './detalle/detalle.component';
+import { Producto } from 'src/app/models/producto';
 
 @Component({
   selector: 'app-productos',
@@ -34,11 +34,12 @@ export class ProductosComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DetalleComponent, {
       width: '25%',
-      data: { name: 'algo', animal: 'algo' },
+      data: { },
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getProductos();
 
     });
   }
@@ -52,7 +53,7 @@ export class ProductosComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
+      this.getProductos();
     });
   }
 
@@ -60,7 +61,12 @@ export class ProductosComponent implements OnInit {
     console.log("eliminando", row)
     this.productoService.eliminarProducto(row).subscribe(x => {
       console.log("eliminar")
+    
+      this.getProductos();
     })
+
+    
+    
   }
 
 }

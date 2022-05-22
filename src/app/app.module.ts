@@ -14,6 +14,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 import { DetalleComponent } from './views/productos/detalle/detalle.component';
 import { FormsModule } from '@angular/forms';
 
@@ -35,7 +36,8 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatCardModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

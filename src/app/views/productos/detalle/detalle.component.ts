@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Producto } from 'src/app/models/model';
+import { Producto } from 'src/app/models/producto';
 import { ProductoServiceService } from 'src/app/services/producto-service.service';
 
 @Component({
@@ -19,6 +19,8 @@ export class DetalleComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: Producto,
   ) {
 
+    console.log('constructor', data)
+    console.log('constructor', JSON.stringify(data))
     this.producto = data
 
     console.log('constructor detalle', data)
@@ -27,17 +29,14 @@ export class DetalleComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  nombre: string = '';
-  descripcion: string = '';
-  cantidad: number = 0;
-  ubicacion: string = '';
-
   nuevoProducto() {
+
+    console.log('nuevo producto', this.producto)
+    console.log('nuevo producto', JSON.stringify(this.producto))
 
     if (this.producto.id) {
 
-      this.productoService.actualizarProducto(this.producto).subscribe(resp =>{
+      this.productoService.actualizarProducto(this.producto).subscribe(resp => {
         console.log("actualizar producto");
       })
 
@@ -48,7 +47,7 @@ export class DetalleComponent implements OnInit {
       })
 
     }
-
+    this.dialogRef.close()
   }
 
 }
